@@ -30,9 +30,9 @@ export const EventCardUser = ({
             onClick={() => onToggleBookmark(event.id)}
           >
             {bookmarked ? (
-              <BookmarkCheckIcon className="size-3" />
+              <BookmarkCheckIcon className="size-3 cursor-pointer" />
             ) : (
-              <BookmarkIcon className="size-3" />
+              <BookmarkIcon className="size-3 cursor-pointer" />
             )}
           </Button>
         </div>

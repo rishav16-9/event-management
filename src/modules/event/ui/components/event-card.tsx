@@ -27,7 +27,7 @@ export const EventCard = ({ event, onEdit, onDelete }: EventCardProps) => {
             className="border-none bg-transparent"
             onClick={() => onEdit(event)}
           >
-            <PencilIcon className="size-3" />
+            <PencilIcon className="size-3 cursor-pointer" />
           </Button>
           <Button
             size="icon"
@@ -35,7 +35,7 @@ export const EventCard = ({ event, onEdit, onDelete }: EventCardProps) => {
             className="border-none bg-transparent"
             onClick={() => onDelete(event.id)}
           >
-            <Trash2Icon className="size-3" />
+            <Trash2Icon className="size-3 cursor-pointer" />
           </Button>
         </div>
       </div>

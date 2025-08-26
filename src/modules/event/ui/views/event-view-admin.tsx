@@ -119,7 +119,9 @@ export const EventView = () => {
               Create events for user
             </p>
           </div>
-          <Button onClick={handleCreate}>Create event</Button>
+          <Button onClick={handleCreate} className="cursor-pointer">
+            Create event
+          </Button>
         </div>
         <div className="flex justify-between flex-col md:flex-row gap-4 w-full">
           <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 w-full">
