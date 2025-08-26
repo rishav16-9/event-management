@@ -11,8 +11,10 @@ interface EventType {
   description: string;
 }
 interface Users {
-  name: string;
   id: string;
+  name: string;
+  authId: string;
+  role: string;
 }
 export const EventView = () => {
   const { data: session } = useSession();
@@ -74,10 +76,20 @@ export const EventView = () => {
     setDescription("");
   };
 
+  const makeAdmin = async (userId: string) => {
+    await fetch("/api/users", {
+      method: "PUT",
+      body: JSON.stringify({ id: userId, role: "admin" }),
+    });
+    fetchUser();
+  };
+
   useEffect(() => {
     fetchUser();
     fetchData();
   }, [session]);
+
+  if (!session) return;
   return (
     <>
       <EventModal
@@ -124,7 +136,19 @@ export const EventView = () => {
             <h3 className="text-lg font-semibold">Users</h3>
             <div className="flex flex-col gap-1">
               {users.map((user) => (
-                <p key={user.id}>{user.name}</p>
+                <div key={user.id} className="flex items-center">
+                  <p className="line-clamp-1">{user.name}</p>
+                  {session?.user.role === "admin" && user.role !== "admin" && (
+                    <Button
+                      onClick={() => makeAdmin(user.id)}
+                      className="cursor-pointer"
+                      variant="ghost"
+                      size="sm"
+                    >
+                      Make Admin
+                    </Button>
+                  )}
+                </div>
               ))}
             </div>
           </div>

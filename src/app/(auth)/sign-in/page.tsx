@@ -5,8 +5,8 @@ import { signIn } from "next-auth/react";
 
 const SignIn = () => {
   return (
-    <div className="flex flex-col gap-y-36 border p-4 border-black rounded-xl">
-      <div className="flex flex-col">
+    <div className="flex flex-col gap-y-12 border p-4 border-black rounded-xl">
+      <div className="flex flex-col gap-y-1">
         <h3 className="text-xl font-semibold">
           Hi, Welcome to Event management 👋
         </h3>
@@ -14,7 +14,7 @@ const SignIn = () => {
       </div>
 
       <Button
-        variant="secondary"
+        variant="default"
         size="lg"
         className="cursor-pointer"
         onClick={() => signIn("google")}

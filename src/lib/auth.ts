@@ -47,7 +47,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         ...session,
         user: {
           ...session.user,
-          role: existing.role,
+          role: existing.role as "admin" | "user",
           id: existing.id,
         },
       };
